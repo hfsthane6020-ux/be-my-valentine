@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine 💘</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      text-align: center;
+    }
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #yes { background: #ff4d6d; color: white; }
+    #no { background: #ccc; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h1 id="question">Will you be my Valentine? 💖</h1>
+  <button id="yes">Yes 💘</button>
+  <button id="no">No 💔</button>
+</div>
+
+<script>
+  const texts = [
+    "Are you sure? 🥺",
+    "Really sure?? 😢",
+    "Think again 💭",
+    "Please don’t say no 😭",
+    "Last chance 😳",
+    "Okay… but I’ll wait 💔"
+  ];
+  let count = 0;
+
+  document.getElementById("no").onclick = () => {
+    document.getElementById("question").innerText =
+      texts[Math.min(count, texts.length - 1)];
+    count++;
+
+    const btn = document.getElementById("no");
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * 80 + "%";
+    btn.style.top = Math.random() * 80 + "%";
+  };
+
+  document.getElementById("yes").onclick = () => {
+    document.body.innerHTML = `
+      <div class="box">
+        <h1>YAYYYY 💖🥰</h1>
+        <p>Happy Valentine’s Day 💝</p>
+        <p>You made my day 🌹</p>
+      </div>
+    `;
+  };
+</script>
+
+</body>
+</html>
